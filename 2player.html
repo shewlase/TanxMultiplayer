@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="tCuz.css">
+		<link rel="icon" href="tanxicon.gif" type="image/gif">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tanx Cuz - Multiplayer</title>
+		<link href="https://fonts.googleapis.com/css?family=Denk+One" rel="stylesheet">
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+		<script src="/socket.io/socket.io.js"></script>		
+	</head>
+	<body>	
+		
+		<canvas id="myCanvas" tabindex="1">
+			Your browser does not support canvas.
+		</canvas>
+		
+		<div id = 'countDownDiv'>
+			<p>Game starting in...</p>
+			<h2 id='cdNumbers' class='animated'>3</h2>
+		</div>
+		
+		<input id = "chatInput" tabindex="2" type="text" value="">
+		
+		<!-- <h1 id="message">Tanx Bro.</h1> -->
+		
+		<div id='titleDiv' class='animated'>
+			<img src='health.png' class='animated' alt='health icon'>
+			<h2 id='introTitle' class='animated'>Tanx Cuz.</h2>
+			<img src='speed.png' class='animated' alt='speed icon'>
+			<button id='playButton' class='animated'>Play</button>
+		</div>
+		
+		<p id='helpText' class='animated'></p>
+		
+		<div id = "scoreLabel" class='animated'>
+			<ul>
+			</ul>
+		</div>
+		
+		<!-- <div id = 'rulesDiv' class='animated'>
+			<h2>Race</h2>
+			<p>First to 3 laps wins.</p>
+			<p>Accelerate</p>			
+			<img src='w.jpg' alt='w key'>
+			<p>Turn</p>
+			<img src='a.jpg' alt='a key'>
+				<span>& </span>
+			<img src='d.jpg' alt='d key'>			
+			<p>Use weapon</p>		
+			<img src='spacebar.jpg' alt='spacebar key'>	
+			<span> OR</span>			
+			<img src='leftMouse.jpg' alt='left mouse button'>	
+			<button>Ready</button>			
+		</div> -->
+		
+		
+		
+		<audio id="kick">
+			<source src="kick.ogg" type="audio/ogg">
+		</audio>
+		<audio id="hat">
+			<source src="hat.ogg" type="audio/ogg">
+		</audio>
+		<audio id="hat2">
+			<source src="hat2.ogg" type="audio/ogg">
+		</audio>
+		<audio id="snare">
+			<source src="snare.ogg" type="audio/ogg">
+		</audio>
+		
+		<audio id="synth1">
+			<source src="one.ogg" type="audio/ogg">
+		</audio>
+		<audio id="synth2">
+			<source src="two.ogg" type="audio/ogg">
+		</audio>
+		<audio id="synth3">
+			<source src="three.ogg" type="audio/ogg">
+		</audio>
+		<audio id="reload">
+			<source src="reload.ogg" type="audio/ogg">
+		</audio>
+		
+		<audio id="noAmmo">
+			<source src="noAmmo.ogg" type="audio/ogg">
+		</audio>
+		
+		<audio id="randomSound">
+			<source src="randomSound.ogg" type="audio/ogg">
+		</audio>
+		
+		<audio id="connectedSound">
+			<source src="playerConnected.ogg" type="audio/ogg">
+		</audio>
+		
+		<audio id="grenadeBounce">
+			<source src="grenadeBounce.ogg" type="audio/ogg">
+		</audio>
+		<audio id="grenadeExplode">
+			<source src="grenadeExplode.ogg" type="audio/ogg">
+		</audio>
+		<audio id="gunshot">
+			<source src="gunshot.ogg" type="audio/ogg">
+		</audio>
+		<audio id="flashbangExplode">
+			<source src="flashbangExplode.ogg" type="audio/ogg">
+		</audio>
+		
+		<audio id="shewlase">
+			<source src="shewlaseproductions.ogg" type="audio/ogg">
+		</audio>
+		
+		<audio id="musicOne">
+			<source src="musicOne.ogg" type="audio/ogg">
+		</audio>
+		<audio id="musicTwo">
+			<source src="musicTwo.ogg" type="audio/ogg">
+		</audio>	
+	
+	
+		<!-- <script src="2playerb.js"></script> -->
+		<script src="arcadeControls.js"></script>
+		<script src="scaled.js"></script>
+		<!-- <script src="cameraFollow.js"></script> -->
+	</body>
+	
+	
+</html>
