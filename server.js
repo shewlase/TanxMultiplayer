@@ -8,8 +8,6 @@ var socketIO = require('socket.io');
 var io = socketIO(server);
 
 var pickupTypes;
-// var canvasWidth = window.innerWidth*0.7;		
-// var canvasHeight = canvasWidth*0.65;
 
 app.get('/', function(req, res){
 	//could send to menu to choose pc or mobile
@@ -19,9 +17,6 @@ app.get('/', function(req, res){
 
 // var players = [];
 var allPlayerInfo = {};
-
-// init();
-     //why array always un defined?
 var clientList;
 var numberConnections = 0;
 var activePickups;
@@ -32,7 +27,6 @@ function init()
 	clientList = [];
 	activePickups = [];
 	pickupTypes = ['health', 'speed', 'ammo'];
-	// gameMode = 'normal';
 	gameMode = 'intro';
 	allZombieSpawns = [];
 }
@@ -61,50 +55,14 @@ server.on('connection', function(client)
 		client.broadcast.emit('addNewPlayer', idPositionType);
 	});
 	
-	/* client.broadcast.emit('addNewPlayer', client.id);
-	client.on('disconnect', 
-	function() 
-	{
-		console.log('player DC'+client.id);
-		delete players.client.id;
-		delete players[client.id];
-	});
-	create new player for the new client
-	server.on('clientSendNewPlayerPosition', 
-	function(xAndY)
-	{
-		
-		var randX = Math.random()*300;
-		var randY = Math.random()*300;
-		var newPlayerX = xAndY[0];
-		var newPlayerY = xAndY[1];
-		players[client.id] = 	
-		players.client.id =
-		{
-			x: newPlayerX,
-			y: newPlayerY,
-			moveAngle: 0,
-			isMoving: false,
-			left : false,
-			up : false,
-			right : false,
-			down : false,
-			id: client.id
-		};											
-		console.log(players);
-		console.log("huh");
-		console.log(players[client.id]);
-	}); */
 	//send new player object to all other clients
 	
-	// from id to index?
 	//movement sent from client x times a second
 	client.on('clientPlayerData', function(playerData) 
 	{
 		var player = allPlayerInfo[client.id] // || {};
 		allPlayerInfo[client.id] = playerData;
 		//update the data on the server
-		// animate code here
 	});
 	client.on('playerRespawn', function(playerData)
 	{
@@ -121,8 +79,6 @@ server.on('connection', function(client)
 		
 		console.log('player DC - '+client.id+ 'New Connection#: ' + clientList.length, allPlayerInfo.length);
 		
-		
-		// delete allPlayerInfo.client.id;
 		delete allPlayerInfo[client.id];
 	});
 	client.on('addBullet', function(recievedBulletInfo)
@@ -134,20 +90,13 @@ server.on('connection', function(client)
 	{
 		client.broadcast.emit('boostTank', tankIndex);
 	});
-	// client.on('moveKeyPressed', function(clientIDandKeyCode)
 	client.on('moveKeyPressed', function(arrayIndexAndKeyCode)
 	{
 		client.broadcast.emit('otherPlayerMoveKeyDown', arrayIndexAndKeyCode);
-		// client.emit('otherPlayerMoveKeyDown', arrayIndexAndKeyCode);
-		// client.emit('otherPlayerMoveKeyDown', clientIDandKeyCode);
-		// console.log('KeyPressed - '+clientIDandKeyCode.keyCode);
 	});
 	client.on('keyReleased', function(arrayIndexAndKeyCode)
 	{
-		// client.emit('otherPlayerKeyReleased', clientIDandKeyCode);
-		// client.emit('otherPlayerKeyReleased', arrayIndexAndKeyCode);
 		client.broadcast.emit('otherPlayerKeyReleased', arrayIndexAndKeyCode);
-		// console.log('KeyReleased - '+clientIDandKeyCode.keyCode);
 	});
 	client.on('newMoveAngle', function(arrayIndexAndAngle)
 	{
@@ -164,7 +113,6 @@ server.on('connection', function(client)
 	});
 	client.on('iGotHit', function(arrayIndex)
 	{		
-		// client.broadcast.emit('otherPlayerHit', arrayIndex);
 		client.broadcast.emit('otherPlayerHit', arrayIndex);
 	});
 	//need index in pickups list?
